@@ -3,6 +3,13 @@ package com.teksystems.coffee;
 import java.util.Arrays;
 
 public class Main {
+	
+	// hook this up to use a scanner to take user input
+	// each of 1 to 4 should be implmented in its own sub function
+	// should use a while loop to keep displaying the menu until the user selects exit
+	// print a menu 1) order item 2) fulfillOrder 3) List menu 4) print total 5) exit
+	// 1) print a message saying enter your order item .. then use the input to pass to addOrder
+	// 2) show the message
 
 	public static void main(String[] args) {
 		CoffeeShop tcs = new CoffeeShop();
