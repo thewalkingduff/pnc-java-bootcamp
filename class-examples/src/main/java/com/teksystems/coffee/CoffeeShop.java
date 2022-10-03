@@ -44,7 +44,7 @@ public class CoffeeShop {
 			orders[orders.length - 1] = name;
 
 			// for now we just return name
-			return name;
+			return "Order added!";
 		} else {
 			return "This item is currently unavailable!";
 		}
