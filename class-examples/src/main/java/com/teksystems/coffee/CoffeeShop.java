@@ -5,6 +5,8 @@ import java.util.Arrays;
 public class CoffeeShop {
 
 	private String name = "Eric's coffee shop";
+	
+	
 	private String[] orders = new String[0];
 	
 	private MenuItem[] menu = new MenuItem[] {
@@ -23,9 +25,11 @@ public class CoffeeShop {
 		    new MenuItem("steak", "food", 3.28), 
 		    new MenuItem("hamburger", "food", 1.05), 
 		    new MenuItem("cinnamon roll", "food", 1.05) };
+	
 
 
 	public String addOrder(String name) {
+		
 		boolean found = false;
 
 		for (MenuItem menuItem : menu) {
@@ -66,7 +70,7 @@ public class CoffeeShop {
 		return orders;
 	}
 
-	public double dueAmount() {
+	public Double dueAmount() {
 		double totalPrice = 0.0;
 
 		for (String itemName : orders) {
@@ -76,6 +80,13 @@ public class CoffeeShop {
 				}
 			}
 		}
+		
+		// if total price is 11.55
+		// this would truncate the totalPrice to a whole integer value of 11.
+		// means it will chop everything after the decimal number to make it a whole number
+		// this is not a floor or a round .. simply throwing away the decimal.
+		int dollars = (int)totalPrice;
+		//dollars will be 11 after this line of code
 
 		return totalPrice;
 	}
@@ -128,5 +139,6 @@ public class CoffeeShop {
 		
 		return result;
 	}
+	
 
 }
