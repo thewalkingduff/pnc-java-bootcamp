@@ -26,6 +26,21 @@ public class Day1 {
 
 		// Display results
 		System.out.println("The area \t for the circle of \\ radius \"" + radius + "\" is " + area);
+		
+		boolean doWork = false;
+		while(doWork) {
+			// will this execute
+			// it will not because doWork is false
+		}
+		
+		do {
+			// will this execute
+			// it will run once because code is first
+		} while (doWork);
+		
+		
+		
+		
 	}
 
 }
