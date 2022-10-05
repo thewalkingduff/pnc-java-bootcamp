@@ -42,37 +42,54 @@ public class MainMenu {
 	private CoffeeShop shop = new CoffeeShop();
 	
 	public static void main(String[] args) {
-		MainMenu m = new MainMenu();
-		m.start();
+		try {
+			MainMenu m = new MainMenu();
+			m.start();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
 	}
 	
 	// TODO change this method to reduce complexity in the while loop condition
 	public void start() {
-		int input = showMenuAndCaptureUserInput();
-		while( input != 4 ) {
-			switch ( input ) {
-			case 1 :
+		
+		while (true) {
+			int input = showMenuAndCaptureUserInput();
+			switch (input) {
+			case 1:
 				// order item
 				orderMenuItem();
 				break;
-			case 2 :
+			case 2:
 				// list order
 				listOrderDetails();
 				break;
-			case 3 : 
+			case 3:
 				// fulfill order
 				break;
-			case 4 :
+			case 4:
+				// remove an order item
+				removeOrderItem();
+				break;
+			case 5:
 				// exit program
 				System.exit(0);
-			default :
+			default:
 				// this is the catch all and is an error state
 				// for example the user enters a non valid menu selection
 				System.out.println("Invalid menu selection");
 			}
-			
-			input = showMenuAndCaptureUserInput();
 		}
+	}
+	
+	private void removeOrderItem() {
+		System.out.print("Enter item to remove ");
+		// remember that if you are capturing spaces from the user input to use nextLine
+		String itemName = scanner.nextLine();
+		
+		String success = shop.removeOrderItem(itemName);
+		System.out.println("\n" + success + "\n");
 	}
 	
 	// TODO fix this function to display a different message if there are no items ordered
@@ -104,7 +121,8 @@ public class MainMenu {
 		System.out.println("1) Order Item");
 		System.out.println("2) List Order");
 		System.out.println("3) Fulfill Order");
-		System.out.println("4) Exit");
+		System.out.println("4) Remove Order Item");
+		System.out.println("5) Exit");
 		
 		System.out.print("Enter menu option ");
 		

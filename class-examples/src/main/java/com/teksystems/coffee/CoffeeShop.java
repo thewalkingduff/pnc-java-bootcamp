@@ -28,8 +28,7 @@ public class CoffeeShop {
 	
 
 
-	public String addOrder(String name) {
-		
+	public String addOrder(String name) {		
 		boolean found = false;
 
 		for (MenuItem menuItem : menu) {
@@ -52,6 +51,28 @@ public class CoffeeShop {
 		} else {
 			return "This item is currently unavailable!";
 		}
+	}
+	
+	public String removeOrderItem(String removeItemName) {
+		// i1, i2, i3, i4	
+		int index = 0;
+		for ( ; index <= orders.length - 1 ; index++ ) {
+			String orderItemName = orders[index];
+			if ( orderItemName.equals(removeItemName)) {
+				orders[index] = null;
+				break;
+			}
+		}
+		
+		// if we are removing i3 our index will be at the position in the array
+		// from here we want to shift every element to the left 1 space
+		for ( ; index < orders.length - 2 ; index++ ) {
+			orders[index] = orders[index + 1];
+		}
+		
+		orders = Arrays.copyOfRange(orders, 0, orders.length -1);
+		
+		return "";
 	}
 
 	public String fulfillOrder() {
