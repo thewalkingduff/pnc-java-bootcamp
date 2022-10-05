@@ -24,6 +24,19 @@ public class MainMenu {
 	// BONUS dont forget some error checking ... if a user enters a letter instead of a number gracefully handle that
 	// BONUS remove an item from the order.
 	
+	// 2022-10-05 : 3:15PM : Add a new feature to the Coffee Shop that allows a order item to be deleted
+	// by giving its name.  The first instance of that item name in the order will be removed.  
+	// resize the array accordingly after the is removed.   
+	// in your menu add a new option and take in the user input of the item to remove
+	// if the item is not found in the order print a message saying not found, otherwise print a message
+	// saying itemname has been removed.
+	// item 1, item 2, item 3, item 4
+	// after removing item 2 the array should be size 3
+	// item 1, item 3, item 4
+	// basically remove the item at the location ... then shift all remaining items left by 1 position
+	// then you can copy the array to a new array of size length - 1;
+	
+	
 	private Scanner scanner = new Scanner(System.in);
 	private CoffeeShop shop = new CoffeeShop();
 	
