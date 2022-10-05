@@ -35,7 +35,8 @@ public class MainMenu {
 	// item 1, item 3, item 4
 	// basically remove the item at the location ... then shift all remaining items left by 1 position
 	// then you can copy the array to a new array of size length - 1;
-	
+	// 
+	// 
 	
 	private Scanner scanner = new Scanner(System.in);
 	private CoffeeShop shop = new CoffeeShop();
