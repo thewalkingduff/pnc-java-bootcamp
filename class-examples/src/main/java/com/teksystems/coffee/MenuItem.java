@@ -36,5 +36,10 @@ public class MenuItem {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	@Override
+	public String toString() {
+		return "menuitem { item name = " + getItem() + ", type = " + getType() + ", price = " + getPrice() + "}";
+	}
 
 }

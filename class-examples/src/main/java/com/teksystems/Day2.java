@@ -39,11 +39,13 @@ public class Day2 {
 		System.out.println("Life goes on!");
 	}
 
-	public static void main(String[] args) {
+	public static final void main(String[] args) {
 		ifStatements();
 	}
 
-	public static void stringFunctions() {
+	public static final void stringFunctions() {
+		boolean b = true || false;
+		
 		String word = "Word";
 		String word1 = "Word";
 		String fileName = "image.jpg";
