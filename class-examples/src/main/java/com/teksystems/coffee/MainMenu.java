@@ -73,6 +73,10 @@ public class MainMenu {
 				removeOrderItem();
 				break;
 			case 5:
+				// show coffee shop menu
+				showCoffeeShopMenu();
+				break;
+			case 6:
 				// exit program
 				System.exit(0);
 			default:
@@ -81,6 +85,19 @@ public class MainMenu {
 				System.out.println("Invalid menu selection");
 			}
 		}
+	}
+	
+	private void showCoffeeShopMenu() {
+		System.out.println("========================");
+		
+		System.out.print("Coffee Shop Menu\n");
+		MenuItem[] menu = shop.getMenu();
+		
+		for ( MenuItem item : menu ) {
+			System.out.println(item.toString());
+		}
+	
+		System.out.print("\n");
 	}
 	
 	private void removeOrderItem() {
@@ -122,7 +139,8 @@ public class MainMenu {
 		System.out.println("2) List Order");
 		System.out.println("3) Fulfill Order");
 		System.out.println("4) Remove Order Item");
-		System.out.println("5) Exit");
+		System.out.println("5) Coffee Shop Menu");
+		System.out.println("6) Exit");
 		
 		System.out.print("Enter menu option ");
 		

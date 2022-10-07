@@ -26,6 +26,10 @@ public class CoffeeShop {
 		    new MenuItem("hamburger", "food", 1.05), 
 		    new MenuItem("cinnamon roll", "food", 1.05) };
 	
+	
+	public MenuItem[] getMenu() {
+		return menu;
+	}
 
 
 	public String addOrder(String name) {		
