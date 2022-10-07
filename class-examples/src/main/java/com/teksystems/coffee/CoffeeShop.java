@@ -1,6 +1,9 @@
 package com.teksystems.coffee;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class CoffeeShop {
 
@@ -27,8 +30,25 @@ public class CoffeeShop {
 		    new MenuItem("cinnamon roll", "food", 1.05) };
 	
 	
-	public MenuItem[] getMenu() {
-		return menu;
+	// TODO - take in a string parameter that is the name of the field to sort on
+	// so .. item, price
+	// we want the menu we return to be sorted by the product name
+	// put 2 user input option in your main menu for sorting by price and name
+	public List<MenuItem> getMenu() {
+		// first we convert the array to a list
+		List<MenuItem> list = Arrays.asList(menu);
+		
+		// next we sort the list based on the item name using a custom comparator
+		Collections.sort(list, new Comparator<MenuItem>() {
+            @Override
+            public int compare(MenuItem p1, MenuItem p2) {
+                // put if statement in here to sort based on the incoming parameter
+            	return p1.getItem().compareTo(p2.getItem());
+            }
+        });
+		
+		
+		return list;
 	}
 
 

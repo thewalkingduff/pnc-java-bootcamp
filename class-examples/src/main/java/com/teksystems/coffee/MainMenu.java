@@ -1,6 +1,7 @@
 package com.teksystems.coffee;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainMenu {
@@ -91,7 +92,7 @@ public class MainMenu {
 		System.out.println("========================");
 		
 		System.out.print("Coffee Shop Menu\n");
-		MenuItem[] menu = shop.getMenu();
+		List<MenuItem> menu = shop.getMenu();
 		
 		for ( MenuItem item : menu ) {
 			System.out.println(item.toString());
