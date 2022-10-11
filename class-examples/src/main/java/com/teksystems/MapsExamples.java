@@ -56,9 +56,11 @@ public class MapsExamples {
 		HashMap<String, Integer> grades = new HashMap<>();
 		grades.put("eric", 100);
 		grades.put("joe", 90);
-		System.out.println(grades.get("eric"));
+		System.out.println("Eric gets a " + grades.get("eric") + " ");
 		System.out.println(grades.get("joe"));
 
+		grades.put(null, null);
+		
 		// map of menu items
 
 		HashMap<String, MenuItem> menuItems = new HashMap<>();

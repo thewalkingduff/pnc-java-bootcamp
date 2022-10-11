@@ -145,6 +145,8 @@ public class MainMenu {
 		
 		System.out.print("Enter menu option ");
 		
+		// TODO put a try catch block here and maybe reshow the menu and force user to continue
+		// entering input until they get something valid.
 		int input = scanner.nextInt();
 		scanner.nextLine();
 		return input;
