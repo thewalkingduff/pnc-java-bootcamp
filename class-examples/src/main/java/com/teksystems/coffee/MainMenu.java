@@ -54,6 +54,7 @@ public class MainMenu {
 	
 	// TODO change this method to reduce complexity in the while loop condition
 	public void start() {
+		shop.getMenu();
 		
 		while (true) {
 			int input = showMenuAndCaptureUserInput();
