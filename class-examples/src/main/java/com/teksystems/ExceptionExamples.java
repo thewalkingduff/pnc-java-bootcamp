@@ -6,8 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 
-import com.teksystems.ArrayExample.SomeException;
-
 public class ExceptionExamples {
 
 	public static void main(String[] args) {
