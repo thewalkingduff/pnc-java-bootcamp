@@ -1,5 +1,6 @@
 package com.teksystems.coffee;
 
+import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,7 +29,9 @@ public class CoffeeShop {
 	public List<MenuItem> getMenu() {
 		// first we convert the array to a list
 		List<MenuItem> list = Arrays.asList(menu);
-
+		
+	
+				
 		// next we sort the list based on the item name using a custom comparator
 		// this implementation is using an anonymous class
 		Collections.sort(list, new Comparator<MenuItem>() {
@@ -66,6 +69,8 @@ public class CoffeeShop {
 		for ( MenuItem menuItem : list ) {
 			System.out.println(menuItem.getItem() + " costs " + menuItem.getPrice());
 		}
+		
+		
 
 		return list;
 	}

@@ -1,6 +1,9 @@
 package com.teksystems.coffee;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SortingExamples {
@@ -14,7 +17,7 @@ public class SortingExamples {
 			new MenuItem("tuna sandwich", "food", 0.95), new MenuItem("ham and cheese sandwich", "food", 1.35),
 			new MenuItem("bacon and egg", "food", 1.15), new MenuItem("steak", "food", 3.28),
 			new MenuItem("hamburger", "food", 1.05), new MenuItem("cinnamon roll", "food", 1.05),
-			new MenuItem(null, "food", 1.05)};
+			new MenuItem(null, "food", 1.05) };
 
 	public static void main(String[] args) {
 		SortingExamples se = new SortingExamples();
@@ -23,21 +26,31 @@ public class SortingExamples {
 
 	public void start() {
 		// first we convert the array to a list
-		List<MenuItem> list = Arrays.asList(menu);
-		
+		List<MenuItem> list = new ArrayList<>();
+		list.addAll(Arrays.asList(menu));
+
 		// do these using collections sort or list sort or by stream
-		
-		// TODO - sort the list by name in descending order  (z to a)
-		
-		// TODO - sort the list by name in ascending order with nulls last
-		// TODO - sort the list by name in ascending order with nulls first
-		
-		// TODO - filter the list and remove all food items - will produce a list of drinks in alphabetical order
+
+		// TODO - sort the list by name in descending order (z to a)
+		Collections.sort(list,
+				Comparator.comparing(MenuItem::getItem, Comparator.nullsFirst(Comparator.naturalOrder())).reversed());	 
 		
 
+		// TODO - sort the list by name in ascending order with nulls last
+		// TODO - sort the list by name in ascending order with nulls first
+
+		// TODO - filter the list and remove all food items - will produce a list of
+	   	//list = list.stream().filter(p -> p.getType().equals("food")).collect(Collectors.toList());
+		list.removeIf(p -> p.getType().equals("food"));
+	    print(list);
+		// drinks in alphabetical order
+
 	}
-	
+
 	private void print(List<MenuItem> list) {
 		// TODO implement this
+		for (MenuItem item : list) {
+			System.out.println(item);
+		}
 	}
 }

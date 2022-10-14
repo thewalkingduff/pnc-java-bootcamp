@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 
+import com.teksystems.ArrayExample.SomeException;
+
 public class ExceptionExamples {
 
 	public static void main(String[] args) {
@@ -74,6 +76,22 @@ public class ExceptionExamples {
 	           }
 	       }
 
+	}
+	
+	
+	private void someFunction() throws SomeException {
+		throw new SomeException("There was a problem in the code");
+	}
+	
+	class SomeException extends Exception {
+		
+		public SomeException() {
+			super();	
+		}
+		
+		public SomeException(String message) {
+			super(message);
+		}
 	}
 
 }
