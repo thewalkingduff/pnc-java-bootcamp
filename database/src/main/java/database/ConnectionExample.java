@@ -14,6 +14,9 @@ public class ConnectionExample {
 		}
 		
 		// create a find by email function to look up employees by email
+		// copy / paste the findByFirstName and rename to findByEmail
+		// fix the 3 or 4 lines of code that needs to execute a slightly different query
+		// print results using a for loop
 
 	}
 
