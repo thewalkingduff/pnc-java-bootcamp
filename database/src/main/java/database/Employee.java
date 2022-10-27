@@ -1,8 +1,15 @@
 package database;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity(name = "employees")
 public class Employee {
 
+	@Id
 	private Integer employeeNumber;
+	
+	
 	private String lastName;
 	private String firstName;
 	private String email;
