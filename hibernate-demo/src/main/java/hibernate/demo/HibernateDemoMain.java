@@ -50,7 +50,7 @@ public class HibernateDemoMain {
 		
 		//orderDao.insert(newOrder);
 		
-		System.out.println("------------------ customer query with employee object returned -------------------------");
+		System.out.println("********************* customer query with employee object returned *********************");
 		
 		CustomerDAO customerDao = new CustomerDAO();
 		
@@ -60,7 +60,7 @@ public class HibernateDemoMain {
 		Employee salesRep=  customer.getSalesRep();
 		System.out.println("employee (sales rep) first name = " + salesRep.getFirstName());
 		
-		System.out.println("------------------ query employee with a list of customers -------------------------");
+		System.out.println("********************* query employee with a list of customers *********************");
 		
 		EmployeeDAO employeeDao = new EmployeeDAO();
 		
@@ -79,6 +79,9 @@ public class HibernateDemoMain {
 					c.getLastName() + " sales rep  | " +
 					c.getSalesRep().getFirstName() );
 		}
+		
+		
+		System.out.println("========================== below here is bonus =========================================");
 		
 		
 		Employee emp = employeeDao.findByCustomerNumber(112);

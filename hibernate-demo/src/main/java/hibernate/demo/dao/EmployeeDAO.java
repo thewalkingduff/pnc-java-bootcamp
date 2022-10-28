@@ -36,9 +36,9 @@ public class EmployeeDAO {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();
-
-		String hql = "select e from Employee e, Customer c where e.employeeNumber = c.salesRep.employeeNumber "
-				+ "and c.id = :custNum";
+		
+		//            select e.* from employees e, customers c where e.employeeNumber = c.salesRepEmployeeNumber and c.customerNumber = 112;
+		String hql = "select e from Employee e, Customer c where e.employeeNumber = c.salesRep.employeeNumber and c.id = :custNum";
 
 		TypedQuery<Employee> query = session.createQuery(hql, Employee.class);
 		query.setParameter("custNum", customerNumber);
