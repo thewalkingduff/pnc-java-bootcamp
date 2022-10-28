@@ -3,7 +3,9 @@ package hibernate.demo;
 import java.util.Date;
 import java.util.List;
 
+import hibernate.demo.dao.CustomerDAO;
 import hibernate.demo.dao.OrderDAO;
+import hibernate.demo.entity.Customer;
 import hibernate.demo.entity.Order;
 
 public class HibernateDemoMain {
@@ -44,6 +46,13 @@ public class HibernateDemoMain {
 		newOrder.setComments("Some comments about the order");
 		newOrder.setCustomerNumber(103);
 		
-		orderDao.insert(newOrder);
+		//orderDao.insert(newOrder);
+		
+		System.out.println("------------------ customer query with employee object returned -------------------------");
+		
+		CustomerDAO customerDao = new CustomerDAO();
+		
+		Customer customer = customerDao.findByCustomerId(114);
+		
 	}
 }
