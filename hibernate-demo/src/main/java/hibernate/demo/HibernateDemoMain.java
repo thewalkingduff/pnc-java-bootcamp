@@ -4,8 +4,10 @@ import java.util.Date;
 import java.util.List;
 
 import hibernate.demo.dao.CustomerDAO;
+import hibernate.demo.dao.EmployeeDAO;
 import hibernate.demo.dao.OrderDAO;
 import hibernate.demo.entity.Customer;
+import hibernate.demo.entity.Employee;
 import hibernate.demo.entity.Order;
 
 public class HibernateDemoMain {
@@ -54,5 +56,26 @@ public class HibernateDemoMain {
 		
 		Customer customer = customerDao.findByCustomerId(114);
 		
-	}
+		System.out.println("customer number = " + customer.getId());
+		Employee salesRep=  customer.getSalesRep();
+		System.out.println("employee (sales rep) first name = " + salesRep.getFirstName());
+		
+		System.out.println("------------------ query employee with a list of customers -------------------------");
+		
+		EmployeeDAO employeeDao = new EmployeeDAO();
+		
+		Employee e = employeeDao.findByEmployeeId(1165);
+		System.out.println("employee number = " + e.getEmployeeNumber() + " first name = " + e.getFirstName());
+		
+		
+		// this is the same as doing this query
+		// select c.* from employees e, customers c where
+		// e.employeeNumber = c.salesRepEmployeeNumber
+		// and e.employeeNumber = 1165;	
+		// you could do this same query in the customer dao w
+		for( Customer c : e.getCustomers() ) {
+			System.out.println("c.customerNumber = " + c.getId() + " | name = " + c.getFirstName() + " | last name = " + c.getLastName() + " sales rep  | " + c.getSalesRep().getFirstName() );
+		}
+		
+ 	}
 }
