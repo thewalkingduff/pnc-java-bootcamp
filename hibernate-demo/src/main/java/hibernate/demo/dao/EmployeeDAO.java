@@ -31,4 +31,25 @@ public class EmployeeDAO {
 		return result;
 	}
 
+	// this is the meachanics of getting a record from the database
+	public Employee findByCustomerNumber(Integer customerNumber) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+
+		String hql = "select e from Employee e, Customer c where e.employeeNumber = c.salesRep.employeeNumber "
+				+ "and c.id = :custNum";
+
+		TypedQuery<Employee> query = session.createQuery(hql, Employee.class);
+		query.setParameter("custNum", customerNumber);
+
+		Employee result = query.getSingleResult();
+
+		t.commit();
+		factory.close();
+		session.close();
+
+		return result;
+	}
+
 }

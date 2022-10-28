@@ -74,8 +74,15 @@ public class HibernateDemoMain {
 		// and e.employeeNumber = 1165;	
 		// you could do this same query in the customer dao w
 		for( Customer c : e.getCustomers() ) {
-			System.out.println("c.customerNumber = " + c.getId() + " | name = " + c.getFirstName() + " | last name = " + c.getLastName() + " sales rep  | " + c.getSalesRep().getFirstName() );
+			System.out.println("c.customerNumber = " + c.getId() + 
+					" | name = " + c.getFirstName() + " | last name = " + 
+					c.getLastName() + " sales rep  | " +
+					c.getSalesRep().getFirstName() );
 		}
+		
+		
+		Employee emp = employeeDao.findByCustomerNumber(112);
+		System.out.println(emp.getEmployeeNumber());
 		
  	}
 }
