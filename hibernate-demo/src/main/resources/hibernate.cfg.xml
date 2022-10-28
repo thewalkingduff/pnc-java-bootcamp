@@ -23,5 +23,7 @@
 		<!-- Mapping entity file -->
 		<mapping class="hibernate.demo.entity.Order" />
 		<mapping class="hibernate.demo.entity.OrderDetails" />
+		<mapping class="hibernate.demo.entity.Customer" />
+		<mapping class="hibernate.demo.entity.Employee" />
 	</session-factory>
 </hibernate-configuration>

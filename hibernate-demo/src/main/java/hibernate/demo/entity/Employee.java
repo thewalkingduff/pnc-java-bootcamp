@@ -37,7 +37,7 @@ public class Employee {
 	private String extension;
 	
 	@Column(name = "officeCode")
-	private Integer officeCode;
+	private String officeCode;
 	
 	// the mapped by value is actually the name of the java variable in the 
 	// custoemr object that we are linking too

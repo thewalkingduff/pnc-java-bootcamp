@@ -32,6 +32,7 @@ public class CustomerDAO {
 		return result;
 	}
 	
-	
+	// 1) create a new maven project named database-homework
+	// 2) 
 	
 }

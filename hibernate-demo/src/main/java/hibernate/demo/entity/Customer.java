@@ -36,8 +36,8 @@ public class Customer {
 	@Column(name = "contactFirstName")
 	private String firstName;
 	
-	@Column(name = "salesRepEmployeeNumber")
-	private Integer salesRepId;
+//	@Column(name = "salesRepEmployeeNumber", insert="false" update="false")
+//	private Integer salesRepId;
 	
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     // this is the actual column name in the table we are going to reference
