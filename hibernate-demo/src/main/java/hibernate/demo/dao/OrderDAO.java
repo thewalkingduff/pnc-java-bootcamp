@@ -54,8 +54,20 @@ public class OrderDAO {
 		return result;
 	}
 	
+	public void insert(Order order ) {
+		SessionFactory factory = new Configuration().configure().buildSessionFactory();
+		Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		
+		session.save(order);
+
+		t.commit();
+		factory.close();
+		session.close();
+	}
 	
-	public void save(Order order ) {
+	
+	public void update(Order order ) {
 		SessionFactory factory = new Configuration().configure().buildSessionFactory();
 		Session session = factory.openSession();
 		Transaction t = session.beginTransaction();

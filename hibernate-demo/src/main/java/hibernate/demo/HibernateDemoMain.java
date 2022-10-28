@@ -12,20 +12,38 @@ public class HibernateDemoMain {
 		// this represents my business logic
 		OrderDAO orderDao = new OrderDAO();
 		
+		System.out.println("------------------ single row -------------------------");
+		
 		Order x = orderDao.findByOrderNumber(10100);
 		
+		System.out.println("------------------ update row -------------------------");
+			
 		System.out.println(x.toString());
 		
 		x.setStatus("PENDING");
 		x.setShippedDate(new Date());
 		
-		orderDao.save(x);
+		orderDao.update(x);
 		
-		System.out.println("-------------------------------------------");
+		System.out.println("------------------ query multiple rows -------------------------");
 		
 		List<Order> orders = orderDao.findByStatus("Cancelled");
 		for ( Order order : orders ) {
 			System.out.println(order);
 		}
+		
+		System.out.println("------------------ insert -------------------------");
+		
+		Order newOrder = new Order();
+		
+		newOrder.setOrderNumber(1010000);
+		newOrder.setOrderDate(new Date());
+		newOrder.setRequiredDate(new Date());
+		//newOrder.setShippedDate(new Date());
+		newOrder.setStatus("WHATEVER");
+		newOrder.setComments("Some comments about the order");
+		newOrder.setCustomerNumber(103);
+		
+		orderDao.insert(newOrder);
 	}
 }

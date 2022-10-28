@@ -27,7 +27,7 @@ public class Order {
 	// these 2 annotations will got on primary key fields in each entity
 	// they are boilerplate code and can be copied from one entity to the next
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer orderNumber;
 	
 	// the @Column represents the column name in the database
