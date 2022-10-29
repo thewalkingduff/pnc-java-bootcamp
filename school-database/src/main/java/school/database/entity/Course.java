@@ -1,12 +1,20 @@
 package school.database.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Generated;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,7 +24,6 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -24,6 +31,7 @@ import lombok.ToString;
 public class Course {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
 	
@@ -39,7 +47,17 @@ public class Course {
 	
 	// the join column is the actualy database column name for the foreign key in the course table
 	// this is one of the few rare spots in which a database name is actually used
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "deptId", nullable = false)
     private Department department;
+    
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private List<StudentCourse> studentCourses;
+
+	@Override
+	public String toString() {
+		return "Course [id=" + getId() + ", name=" + getName() + ", deptId=" + getDeptId() + "]";
+	}
+    
+    
 }
