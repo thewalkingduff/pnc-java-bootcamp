@@ -71,6 +71,7 @@ public class SchoolDatbaseMain {
 		newStudent.setLastName("Jordan");
 		newStudent.setMajor(5);
 		studentDAO.insert(newStudent);
+		// Testing Github
 
 	}
 
