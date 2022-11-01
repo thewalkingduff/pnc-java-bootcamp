@@ -16,7 +16,7 @@ public class SchoolDatbaseMain {
 		Course c = courseDao.findById(28);
 		System.out.println(c);
 		System.out.println("---------------Search by Name/Keyword/Partial Match-------------------");
-		List<Course> courses = courseDao.findByCourseName("Scien");
+		List<Course> courses = courseDao.findByCourseNameStartsWith("Scien");
 		for (Course course : courses) {
 			System.out.println(course);
 		}
